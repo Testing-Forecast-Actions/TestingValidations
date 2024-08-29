@@ -1,0 +1,15 @@
+{
+    "schema_version": "https://raw.githubusercontent.com/hubverse-org/schemas/main/v3.0.1/admin-schema.json",
+    "name": "European Scenario Modelling Hub - Test",
+    "maintainer": "ISI Foundation",
+    "contact": {
+        "name": "Paolo Milano",
+        "email": "paolo.milano@isi.it"
+    },   
+    "repository": {
+        "name": "https://github.com/Testing-Forecast-Actions/TestingValidations"
+    },
+
+    "file_format": ["csv", "parquet"],
+    "timezone": "Europe/Stockholm"
+}
