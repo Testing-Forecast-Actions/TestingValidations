@@ -55,10 +55,14 @@ jobs:
             sudo apt-get install libcurl4-openssl-dev libv8-dev
 
         # Install hubValidations package from HubVerse
-        - uses: r-lib/actions/setup-r-dependencies@v2
-          with:
-            packages: hubverse-org/hubValidations, any::sessioninfo
-              
+        # - uses: r-lib/actions/setup-r-dependencies@v2
+        #   with:
+        #     packages: hubverse-org/hubValidations, any::sessioninfo
+
+        - name: Install R dependencies
+          run: |
+            Rscript -e 'install.packages(c("remotes", "sessioninfo"))'
+            Rscript -e 'remotes::install_github("hubverse-org/hubValidations")'
 
         # Validate data submission
         - name: Run validations
