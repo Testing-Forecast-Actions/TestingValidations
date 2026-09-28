@@ -59,11 +59,24 @@ jobs:
         #   with:
         #     packages: hubverse-org/hubValidations, any::sessioninfo
 
-        - name: Install R dependencies
-          run: |
-            Rscript -e 'install.packages(c("remotes", "sessioninfo"))'
-            Rscript -e 'remotes::install_github("hubverse-org/hubValidations")'
 
+
+        - uses: r-lib/actions/setup-r-dependencies@v2
+          with:
+            packages: |
+              any::remotes
+              any::sessioninfo
+        
+        - name: Install development hubValidations
+          run: |
+            Rscript -e 'remotes::install_github("hubverse-org/hubValidations", ref = "main", upgrade = "never")'
+
+
+        - name: Show hubValidations version
+          run: |
+            Rscript -e 'packageVersion("hubValidations")'
+            Rscript -e 'packageDescription("hubValidations")[c("Version", "RemoteSha")]'
+        
         # Validate data submission
         - name: Run validations
           env:
