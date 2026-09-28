@@ -93,6 +93,5 @@
             "submissions_due": {"start":"2024-04-14","end":"2024-09-14"}
         }
     ],
-    "output_type_id_datatype": "character",
-    "derived_task_ids": ["target_end_date"]
+    "output_type_id_datatype": "character"
 }
